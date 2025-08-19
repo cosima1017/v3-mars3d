@@ -11,3 +11,5 @@ export * from './utils'
 export * from './layers/base-layer'
 
 export * from './popups/marker-popup'
+
+export * from './types'

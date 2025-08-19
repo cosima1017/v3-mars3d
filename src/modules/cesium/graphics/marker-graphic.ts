@@ -1,7 +1,6 @@
-import { getImageUrl } from '@/utils/url'
+import { getPublicImage } from '@/utils/getPublicAsset'
 import * as mars3d from 'mars3d'
-// import { map } from '..'
-import { map, openPopup } from '..'
+import { type IMarker, map, openPopup } from '..'
 
 const { Cesium } = mars3d
 
@@ -14,7 +13,7 @@ export let graphicLayer: mars3d.layer.GraphicLayer
  * @param {number} [size=32] 图标大小
  */
 
-export function addImageMarker() {
+export function addMarker() {
   // 如果没有矢量图层则需要创建
   if (!graphicLayer) {
     graphicLayer = new mars3d.layer.GraphicLayer({
@@ -22,32 +21,54 @@ export function addImageMarker() {
       allowDrillPick: true,
       // 贴地
       clampToGround: true
+      // pid: 99
     })
+    openPopup()
     map.addLayer(graphicLayer)
     // 在layer绑定监听事件
-    graphicLayer.on(mars3d.EventType.click, (e: any) => {
-      console.log('单击了图标点', e)
-    })
+    // graphicLayer.on(mars3d.EventType.click, (e: any) => {
+    //   console.log('单击了图标点', e)
+    // })
   }
-
-  openPopup()
-  creatImageMarker()
+  createMarker({
+    id: 1,
+    name: 'marker1',
+    longitude: 113.2644,
+    latitude: 23.1291,
+    altitude: 0
+  })
 }
 
-export function creatImageMarker() {
-  const image = getImageUrl('map/markers/marker.svg')
-  const graphic = new mars3d.graphic.BillboardEntity({
-    position: [113.2644, 23.1291],
-    style: {
-      image,
-      width: 48,
-      height: 57,
-      horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
-      verticalOrigin: Cesium.VerticalOrigin.BOTTOM
-    },
-    attr: {
-      name: '图标点'
-    }
+/**
+ * 创建图标
+ * @param markers 图标点参数
+ */
+export function createMarker(markers: IMarker[] | IMarker) {
+  if (!markers) return
+  const image = getPublicImage('/images/icons/marker.svg')
+  const graphics: mars3d.graphic.BillboardEntity[] = []
+  if (!Array.isArray(markers)) {
+    markers = [markers]
+  }
+  markers.forEach(marker => {
+    const graphic = new mars3d.graphic.BillboardEntity({
+      position: [marker.longitude, marker.latitude, marker.altitude ?? 0],
+      style: {
+        image: marker.iconUrl || image,
+        width: marker.iconWidth || 48,
+        height: marker.iconHeight || 57,
+        horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
+        verticalOrigin: Cesium.VerticalOrigin.BOTTOM
+      }
+    })
+    graphics.push(graphic)
   })
-  graphicLayer.addGraphic(graphic)
+
+  graphicLayer.addGraphic(graphics)
+}
+
+export function removeGraphic() {
+  if (!map) return
+  graphicLayer.remove()
+  map.removeLayer(graphicLayer)
 }

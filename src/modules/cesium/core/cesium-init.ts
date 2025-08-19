@@ -1,6 +1,6 @@
 import * as mars3d from 'mars3d'
 import 'mars3d-space'
-import { addImageMarker } from '../graphics/marker-graphic'
+import { addMarker } from '../graphics/marker-graphic'
 import '../utils/cesium-enhance'
 
 export let map: mars3d.Map
@@ -22,6 +22,11 @@ export function initMars3d() {
   // })
 
   map = new mars3d.Map('mars3dContainer', {
+    terrain: mars3d.LayerUtil.createTerrainProvider({
+      type: 'cesium',
+      url: 'http://data.mars3d.cn/terrain',
+      show: true
+    }),
     scene: {
       // 默认视角参数
       center: {
@@ -77,5 +82,8 @@ export function initMars3d() {
       { name: '天地图', type: 'tdt', layer: 'img_d', show: true }
     ]
   })
-  addImageMarker()
+
+  map.once(mars3d.EventType.load, () => {
+    addMarker()
+  })
 }
