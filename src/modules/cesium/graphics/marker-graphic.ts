@@ -18,9 +18,14 @@ export function addMarker() {
   if (!graphicLayer) {
     graphicLayer = new mars3d.layer.GraphicLayer({
       // 如果存在完全坐标相同的图标点，可以打开这个属性
-      allowDrillPick: true,
+      // allowDrillPick: true,
       // 贴地
-      clampToGround: true
+      clampToGround: true,
+      // 聚合
+      cluster: {
+        enabled: true,
+        pixelRange: 50
+      }
       // pid: 99
     })
     openPopup()
@@ -30,6 +35,7 @@ export function addMarker() {
     //   console.log('单击了图标点', e)
     // })
   }
+
   createMarker({
     id: 1,
     name: 'marker1',
@@ -59,6 +65,9 @@ export function createMarker(markers: IMarker[] | IMarker) {
         height: marker.iconHeight || 57,
         horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
         verticalOrigin: Cesium.VerticalOrigin.BOTTOM
+      },
+      attr: {
+        name: '示例'
       }
     })
     graphics.push(graphic)

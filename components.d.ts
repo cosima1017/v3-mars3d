@@ -11,6 +11,8 @@ declare module 'vue' {
     CesiumCesiumViewCesiumView: typeof import('./src/components/cesium/cesium-view/cesium-view.vue')['default']
     CesiumPopupImageMarker: typeof import('./src/components/cesium/popup/image-marker.vue')['default']
     CesiumPopupMarkerPopup: typeof import('./src/components/cesium/popup/marker-popup.vue')['default']
+    CesiumTerrainControlTerrainControl: typeof import('./src/components/cesium/terrain-control/terrain-control.vue')['default']
+    CesiumTiandituControlTiandituControl: typeof import('./src/components/cesium/tianditu-control/tianditu-control.vue')['default']
     CommonDialog: typeof import('./src/components/common/dialog/index.vue')['default']
     CommonHeader: typeof import('./src/components/common/header/index.vue')['default']
     CommonInput: typeof import('./src/components/common/input/index.vue')['default']

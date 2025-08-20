@@ -1,0 +1,52 @@
+{
+  "terrain": {
+    "url": "https://data.mars3d.cn/terrain",
+    "show": false
+  },
+  "scene": {
+    "center": {
+      "lat": 23.1291,
+      "lng": 113.2644,
+      "alt": 1000,
+      "heading": 0,
+      "pitch": -90
+    }
+  },
+  "sceneMode": 2,
+  "shadows": false,
+  "removeDblClick": true,
+  "showSun": false,
+  "showMoon": false,
+  "showSkyAtmosphere": false,
+  "showSkyBox": false,
+  "fog": false,
+  "fxaa": false,
+  "globe": {
+    "depthTestAgainstTerrain": false,
+    "showGroundAtmosphere": false,
+    "enableLighting": false
+  },
+  "basemaps": [
+    {
+      "id": 10,
+      "name": "地图底图",
+      "opacity": 1,
+      "type": "group"
+    },
+    {
+      "layers": [
+        {
+          "name": "天地图",
+          "type": "tdt",
+          "layer": "img_d",
+          "token": "661f268b81519597c26b479da66db8f3",
+          "show": true
+        }
+      ],
+      "pid": 10,
+      "show": true,
+      "opacity": 1,
+      "type": "group"
+    }
+  ]
+}

@@ -1,65 +1,16 @@
 {
-  "id": "4966024",
-  "name": "v3-demo",
+  "id": "5003040",
+  "name": "v3-mars3d",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
     {
-      "icon_id": "25236258",
-      "name": "路网",
-      "font_class": "luwang",
-      "unicode": "e69b",
-      "unicode_decimal": 59035
-    },
-    {
-      "icon_id": "5387942",
-      "name": "取消全屏_o",
-      "font_class": "quxiaoquanping_o",
-      "unicode": "eb98",
-      "unicode_decimal": 60312
-    },
-    {
-      "icon_id": "5387948",
-      "name": "全屏_o",
-      "font_class": "quanping_o",
-      "unicode": "eb99",
-      "unicode_decimal": 60313
-    },
-    {
-      "icon_id": "3759062",
-      "name": "卫星",
-      "font_class": "weixing",
-      "unicode": "e6ad",
-      "unicode_decimal": 59053
-    },
-    {
-      "icon_id": "15714219",
-      "name": "地图定位",
-      "font_class": "ditudingwei",
-      "unicode": "e625",
-      "unicode_decimal": 58917
-    },
-    {
-      "icon_id": "9841577",
-      "name": "地图",
-      "font_class": "ditu",
-      "unicode": "e613",
-      "unicode_decimal": 58899
-    },
-    {
-      "icon_id": "2793923",
-      "name": "10长度",
-      "font_class": "changdu",
-      "unicode": "e654",
-      "unicode_decimal": 58964
-    },
-    {
-      "icon_id": "6677524",
-      "name": "面积测量",
-      "font_class": "mianjiceliang",
-      "unicode": "e604",
-      "unicode_decimal": 58884
+      "icon_id": "27903002",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
     }
   ]
 }
