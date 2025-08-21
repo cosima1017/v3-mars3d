@@ -1,4 +1,4 @@
-import { MarkerPopup } from '@/components/cesium'
+import { MarkerPopup } from '@/components/mars3d'
 import { graphicLayer } from '../graphics/marker-graphic'
 import { mountVueComponent } from '../utils'
 

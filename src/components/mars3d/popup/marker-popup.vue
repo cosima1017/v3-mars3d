@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { graphicLayer } from '@/modules/cesium'
+import { graphicLayer } from '@/modules/mars3d'
 defineProps<{
   name: string
 }>()

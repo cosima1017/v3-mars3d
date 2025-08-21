@@ -25,6 +25,10 @@ export function addMarker() {
       cluster: {
         enabled: true,
         pixelRange: 50
+      },
+      popupOptions: {
+        // 是否开启点击Map自动关闭popup
+        closeOnClick: false
       }
       // pid: 99
     })
@@ -36,13 +40,22 @@ export function addMarker() {
     // })
   }
 
-  createMarker({
-    id: 1,
-    name: 'marker1',
-    longitude: 113.2644,
-    latitude: 23.1291,
-    altitude: 0
-  })
+  createMarker([
+    {
+      id: 1,
+      name: 'marker1',
+      longitude: 113.2644,
+      latitude: 23.1291,
+      altitude: 0
+    },
+    {
+      id: 2,
+      name: 'marker2',
+      longitude: 113.2644,
+      latitude: 23.2291,
+      altitude: 0
+    }
+  ])
 }
 
 /**

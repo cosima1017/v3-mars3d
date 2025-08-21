@@ -10,7 +10,7 @@ export default function createHtmlPlugin(
     minify: isBuild,
     inject: {
       data: {
-        title: VITE_APP_TITLE || 'V3 CESIUM'
+        title: VITE_APP_TITLE || 'V3 MARS3D'
       }
     }
   })

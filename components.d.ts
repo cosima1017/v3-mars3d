@@ -16,6 +16,8 @@ declare module 'vue' {
     CommonDialog: typeof import('./src/components/common/dialog/index.vue')['default']
     CommonHeader: typeof import('./src/components/common/header/index.vue')['default']
     CommonInput: typeof import('./src/components/common/input/index.vue')['default']
+    Mars3dMars3dViewMars3dView: typeof import('./src/components/mars3d/mars3d-view/mars3d-view.vue')['default']
+    Mars3dPopupMarkerPopup: typeof import('./src/components/mars3d/popup/marker-popup.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

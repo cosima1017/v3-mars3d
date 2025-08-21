@@ -1,11 +1,11 @@
 <template>
   <div>
-    <CesiumView />
+    <Mars3dView />
   </div>
 </template>
 
 <script setup lang="ts">
-import { CesiumView } from '@/components/cesium'
+import { Mars3dView } from '@/components/mars3d'
 </script>
 
 <style scoped></style>

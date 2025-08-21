@@ -92,18 +92,9 @@ export async function initMars3d() {
 
   map.once(mars3d.EventType.load, () => {
     addMarker()
-
-    // 检查地形是否加载成功
-    const { terrainProvider } = map.scene
-    if (terrainProvider) {
-      console.log('地形提供者已加载:', terrainProvider)
-    } else {
-      console.warn('地形提供者加载失败')
-    }
   })
 
-  // 监听地形加载错误
-  map.on(mars3d.EventType.terrainLoadError, (event: any) => {
-    console.error('地形加载错误:', event)
+  map.on(mars3d.EventType.click, (e: mars3d.MapEvent) => {
+    console.log('单击地图', e)
   })
 }
