@@ -5,6 +5,9 @@ import '../utils/cesium-enhance'
 
 export let map: mars3d.Map
 
+/**
+ * @description 初始化mars3d
+ */
 export async function initMars3d() {
   // map = new mars3d.Map('mars3dContainer', {
   //   terrain: mars3d.LayerUtil.createTerrainProvider({
@@ -97,4 +100,48 @@ export async function initMars3d() {
   map.on(mars3d.EventType.click, (e: mars3d.MapEvent) => {
     console.log('单击地图', e)
   })
+}
+
+/**
+ * @description 获取当前视角
+ * @returns {mars3d.CameraView}
+ */
+export function getCameraView() {
+  return map.getCameraView()
+}
+
+/**
+ * @description 设置当前视角
+ * @param {mars3d.CameraView} cameraView
+ * @param {object} options
+ * @returns {promise<boolean>}
+ */
+export function setCameraView(
+  cameraView: mars3d.CameraView,
+  options?: object = {}
+) {
+  return map.setCameraView(cameraView, options)
+}
+
+/**
+ * @description 视角轮巡
+ * @param {Array<mars3d.CameraView>} arr
+ * @param {object} options
+ * @returns {void}
+ */
+export function setCameraViewList(
+  arr: Array<mars3d.CameraView>,
+  options?: object = {}
+) {
+  map.setCameraViewList(arr, options)
+}
+
+/**
+ * @description 飞回默认视角（一般为初始化的center）
+ * @param {object} options 配置参数 duration
+ * @param {number} options.duration 飞行时间
+ * @returns {void}
+ */
+export function flyHome(options?: object) {
+  map.flyHome(options)
 }

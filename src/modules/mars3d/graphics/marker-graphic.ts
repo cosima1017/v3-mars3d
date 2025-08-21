@@ -18,7 +18,7 @@ export function addMarker() {
   if (!graphicLayer) {
     graphicLayer = new mars3d.layer.GraphicLayer({
       // 如果存在完全坐标相同的图标点，可以打开这个属性
-      // allowDrillPick: true,
+      allowDrillPick: true,
       // 贴地
       clampToGround: true,
       // 聚合
@@ -34,10 +34,6 @@ export function addMarker() {
     })
     openPopup()
     map.addLayer(graphicLayer)
-    // 在layer绑定监听事件
-    // graphicLayer.on(mars3d.EventType.click, (e: any) => {
-    //   console.log('单击了图标点', e)
-    // })
   }
 
   createMarker([
@@ -84,6 +80,7 @@ export function createMarker(markers: IMarker[] | IMarker) {
       }
     })
     graphics.push(graphic)
+    console.log(graphic)
   })
 
   graphicLayer.addGraphic(graphics)
