@@ -80,7 +80,6 @@ export function createMarker(markers: IMarker[] | IMarker) {
       }
     })
     graphics.push(graphic)
-    console.log(graphic)
   })
 
   graphicLayer.addGraphic(graphics)

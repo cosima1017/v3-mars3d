@@ -5,6 +5,8 @@ import '../utils/cesium-enhance'
 
 export let map: mars3d.Map
 
+const { Cesium } = mars3d
+
 /**
  * @description 初始化mars3d
  */
@@ -97,9 +99,9 @@ export async function initMars3d() {
     addMarker()
   })
 
-  map.on(mars3d.EventType.click, (e: mars3d.MapEvent) => {
-    console.log('单击地图', e)
-  })
+  // map.on(mars3d.EventType.click, (e: mars3d.MapEvent) => {
+  //   console.log('单击地图', e)
+  // })
 }
 
 /**
@@ -144,4 +146,43 @@ export function setCameraViewList(
  */
 export function flyHome(options?: object) {
   map.flyHome(options)
+}
+
+/**
+ * @description 获取两点之间的距离
+ * @param {Cesium.Cartesian3} startPoint 起点
+ * @param {Cesium.Cartesian3} endPoint 终点
+ * @returns {number} 距离
+ */
+export function getDistance(
+  startPoint: Cesium.Cartesian3,
+  endPoint: Cesium.Cartesian3
+) {
+  return Cesium.Cartesian3.distance(startPoint, endPoint)
+}
+
+/**
+ * @description 飞行定位至坐标数组处
+ * @param {Array<Cesium.Cartesian3>} cartesian 笛卡尔坐标
+ * @param {object} options 参数
+ * @returns {Promise<boolean>}
+ */
+export function flyToCartesian(
+  cartesian: Array<Cesium.Cartesian3>,
+  options?: object
+) {
+  return map.flyToPositions(cartesian, options)
+}
+
+/**
+ * @description 视角中心定位至目标点(非相机位置)
+ * @param {Cesium.Cartesian3 | mars3d.LngLatPoint | Array<number>} point 坐标
+ * @param {object} options 配置参数
+ * @returns {Promise<boolean>}
+ */
+export function flyToPoint(
+  point: Array<number> | mars3d.LngLatPoint | Cesium.Cartesian3,
+  options?: object
+) {
+  return map.flyToPoint(point, options)
 }
